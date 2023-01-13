@@ -17,26 +17,27 @@ int main(){
     int foul,musuh,gagal,wrong;
     //main menu
     mainmenu:
-    cout<<"selamat datang di HANGMAN GAME. semoga beruntung!\n";
-    cout<<"mulai game?(y/n)\n";
+    cout<<"===Selamat datang di HANGMAN GAME===\nsemoga beruntung!\n";
+    cout<<"Mulai game?(y/n)\n";
     cin>>menu;
     if(menu=="n"||menu=="N"){
-        cout<<"terimakasih sudah berkunjung";
+        cout<<"Terimakasih sudah berkunjung";
         return 0;
     }
     system("CLS");
     persiapan:
-    cout<<"pilih lawan\n1.player\n2.komputer\n";
+    cout<<"Pilih lawan\n1.Player\n2.Komputer\n";
     cin>>musuh;
+    system("CLS");
     //persiapan game vs player
     switch (musuh){
         case 1 ://vs player
-        cout<<"gunakan huruf kapital untuk KATA yang akan kamu pakai sebagai jawaban, dan pemain hanya memiliki 8kesempatan menjawab salah!\nkalimat: ";
+        cout<<"Gunakan huruf kapital untuk KATA yang akan kamu pakai sebagai jawaban, dan pemain hanya memiliki 8kesempatan menjawab salah!\nkalimat: ";
         cin>>Pkata;
-        cout<<"siap?(y/n)";
+        cout<<"Siap?(y/n)";
         cin>>ready;
         if(ready=="n"||ready=="N"){
-            cout<<"ulangi game?(y/n)";
+            cout<<"Ulangi game?(y/n)";
             cin>>persiapan;
                 if(persiapan=="y"||persiapan=="Y"){
                 system("CLS");
@@ -44,7 +45,7 @@ int main(){
             }
         else if(persiapan=="n"||persiapan=="N"){
             system("CLS");
-            cout<<"====================\nterimakasih sudah bermain\n====================";
+            cout<<"====================\nTerimakasih sudah bermain\n====================";
             return 0;
         }
     }
@@ -54,26 +55,26 @@ int main(){
     foul=0;
     //game vs player
     while(foul<max && sensor !=Pkata){
-        cout<<"kau punya "<<(max-foul)<<" kesempatan menjawab salah\n";
+        cout<<"Kamu punya "<<(max-foul)<<" kesempatan menjawab salah\n";
         cout<<"====================\n";
-        cout<<"kamu sudah menebak huruf "<<ketebak<<endl;
-        cout<<"kalimat yang sudah kamu tebak "<<sensor<<endl;
+        cout<<"Kamu sudah menebak huruf "<<ketebak<<endl;
+        cout<<"Kalimat yang sudah kamu tebak "<<sensor<<endl;
         //input tebakan
         char tebak;
-        cout<<"tebak kalimat: ";
+        cout<<"Tebakanmu: ";
         cin>>tebak;
         tebak=toupper(tebak);
         system("CLS");
         //checkpoint pengecekan
         while(ketebak.find(tebak) != string::npos){
-            cout<<"kamu sudah menebak dengan huruf "<<tebak<<endl;
-            cout<<"tebak kalimat :";
+            cout<<"Kamu sudah menebak dengan huruf "<<tebak<<endl;
+            cout<<"Tebakanmu:";
             cin>>tebak;
             tebak=toupper(tebak);
         }
         ketebak+=tebak;
         if(Pkata.find(tebak) !=string::npos){
-            cout<<"benar "<<tebak<<" adalah hurufnya\n";
+            cout<<"Benar "<<tebak<<" adalah hurufnya\n";
             for(int i=0;i< Pkata.length();++i){
                 if(Pkata[i]==tebak){
                     sensor[i]=tebak;
@@ -82,7 +83,7 @@ int main(){
             system("CLS");
         }
         else {
-            cout<<"maaf tebakanmu salah\n";
+            cout<<"Maaf tebakanmu salah\n";
             ++foul;
             system("CLS");
         }
@@ -92,10 +93,10 @@ int main(){
     srand(time(0));
     //pilih kesulitan
     cout<<"KAMU HANYA PUNYA 5 KALI KESEMPATAN MENJAWAB SALAH!\n";
-    cout<<"kamu siap?(y/n)";
+    cout<<"Kamu siap?(y/n)";
     cin>>ready;
     if(ready=="n"||ready=="N"){
-        cout<<"ulangi game?(y/n)";
+        cout<<"Ulangi game?(y/n)";
         cin>>persiapan;
         if(persiapan=="y"||persiapan=="Y"){
             system("CLS");
@@ -103,12 +104,12 @@ int main(){
         }
         else if(persiapan=="n"||persiapan=="N"){
             system("CLS");
-            cout<<"====================\nterimakasih sudah bermain\n====================";
+            cout<<"====================\nTerimakasih sudah bermain\n====================";
             return 0;
         }
     }
     persiapan2:
-    cout<<"pilih kesulitan\na.hardcore\nb.deadly\n";
+    cout<<"Pilih kesulitan\nA.Hardcore\nB.Deadly\n";
     cin>>kesulitan;
     system("CLS");
     //game vs com
@@ -119,26 +120,26 @@ int main(){
         ketebak="";
         gagal=0;
         while(gagal<mati && sensor !=Hkalimat){
-            cout<<"kau punya "<<(mati-gagal)<<" kesempatan menjawab salah\n";
+            cout<<"Kamu punya "<<(mati-gagal)<<" kesempatan menjawab salah\n";
             cout<<"====================\n";
-            cout<<"kamu sudah menebak huruf "<<ketebak<<endl;
-            cout<<"kalimat yang sudah kamu tebak "<<sensor<<endl;
+            cout<<"Kamu sudah menebak huruf "<<ketebak<<endl;
+            cout<<"Kalimat yang sudah kamu tebak "<<sensor<<endl;
             //input tebakan
             char tebak;
-            cout<<"tebak kalimat: ";
+            cout<<"Tebakanmu: ";
             cin>>tebak;
             tebak=toupper(tebak);
             system("CLS");
             //checkpoint pengecekan
             while(ketebak.find(tebak) != string::npos){
-            cout<<"kamu sudah menebak dengan huruf "<<tebak<<endl;
-            cout<<"tebak kalimat :";
+            cout<<"Kamu sudah menebak dengan huruf "<<tebak<<endl;
+            cout<<"Tebakanmu: ";
             cin>>tebak;
             tebak=toupper(tebak);
         }
         ketebak+=tebak;
         if(Hkalimat.find(tebak) !=string::npos){
-            cout<<"benar "<<tebak<<" adalah hurufnya\n";
+            cout<<"Benar "<<tebak<<" adalah hurufnya\n";
             for(int a=0;a< Hkalimat.length();++a){
                 if(Hkalimat[a]==tebak){
                     sensor[a]=tebak;
@@ -147,7 +148,7 @@ int main(){
             system("CLS");
         }
         else {
-            cout<<"maaf tebakanmu salah\n";
+            cout<<"Maaf tebakanmu salah\n";
             ++gagal;
             system("CLS");
         }
@@ -160,26 +161,26 @@ int main(){
         ketebak="";
         wrong=0;
         while(wrong<mati && sensor !=Dkalimat){
-        cout<<"kamu punya "<<(mati-wrong)<<" kesempatan menjawab salah\n";
+        cout<<"Kamu punya "<<(mati-wrong)<<" kesempatan menjawab salah\n";
         cout<<"====================\n";
-        cout<<"kamu sudah menebak huruf "<<ketebak<<endl;
-        cout<<"kalimat yang sudah kamu tebak "<<sensor<<endl;
+        cout<<"Kamu sudah menebak huruf "<<ketebak<<endl;
+        cout<<"Kalimat yang sudah kamu tebak "<<sensor<<endl;
         //input tebakan
         char tebak;
-        cout<<"tebak kalimat: ";
+        cout<<"Tebakanmu: ";
         cin>>tebak;
         tebak=toupper(tebak);
         system("CLS");
         //checkpoint pengecekan
         while(ketebak.find(tebak) != string::npos){
-            cout<<"kamu sudah menebak dengan huruf "<<tebak<<endl;
-            cout<<"tebak kalimat :";
+            cout<<"Kamu sudah menebak dengan huruf "<<tebak<<endl;
+            cout<<"Tebakanmu: ";
             cin>>tebak;
             tebak=toupper(tebak);
         }
         ketebak+=tebak;
         if(Dkalimat.find(tebak) !=string::npos){
-            cout<<"benar "<<tebak<<" adalah hurufnya\n";
+            cout<<"Benar "<<tebak<<" adalah hurufnya\n";
             for(int b=0;b< Dkalimat.length();++b){
                 if(Dkalimat[b]==tebak){
                     sensor[b]=tebak;
@@ -188,7 +189,7 @@ int main(){
             system("CLS");
         }
         else {
-            cout<<"maaf tebakanmu salah\n";
+            cout<<"Maaf tebakanmu salah\n";
             ++wrong;
             system("CLS");
         }
@@ -208,28 +209,30 @@ int main(){
     }
     //win
     else{
-        cout<<"kamu berhasil\n";
+        cout<<"KAMU BERHASIL!\n";
     }
     if(kesulitan=="a"||kesulitan=="A"){
-    cout<<"kalimatnya adalah: "<<hasilA<<endl;}
+    cout<<"Kalimatnya adalah: "<<hasilA<<endl;}
     else if(kesulitan=="b"||kesulitan=="B"){
-    cout<<"kalimatnya adalah: "<<hasilB<<endl;}
+    cout<<"Kalimatnya adalah: "<<hasilB<<endl;}
     else {
-    cout<<"kalimatnya adalah: "<<Pkata<<endl;}
+    cout<<"Kalimatnya adalah: "<<Pkata<<endl;}
     //repeat
-    cout<<"ulangi game?";
+    cout<<"Ulangi game?";
     cin>>ready;
         while(ready != "n" && ready != "N") {
         if(ready == "y" || ready == "Y") {
             system("CLS");
             goto mainmenu;
             } else {
-                cout<<"bukan pilihan\n";
-                cout<<"ulangi game?:";
+                system("CLS");
+                cout<<"Bukan pilihan\n";
+                cout<<"Ulangi game?:";
                 cin>>ready;
                 }
 }
-cout<<"====================\nterimakasih sudah bermain\n====================";
+system("CLS");
+cout<<"====================\nTerimakasih sudah bermain\n====================";
 return 0;
 
 }
