@@ -11,7 +11,7 @@ using namespace std;
 int main(){
     const int max=8;
     const int mati=5;
-    char menu,ulangi,ready,persiapan,persiapan2,kesulitan;
+    char menu,ulangi,ready,persiapan,kesulitan;
     string Hkalimat,Dkalimat,Pkata,hasilA,hasilB,sensor,ketebak;
     string hardcore[10]={"KELAPA","REXONA","DOMPET","PARFUM","KERBAU","SUMPIT","BERENANG","RANSEL","STROBERI","BERLIAN"};//daftar jawaban mode hardcore
     string deadly[10]={"TEHPUCUKHARUM","KOMPUTERJADUL","PISANGBUSUK","SUPERKOMPUTER","FOTOSINTESIS","LAPTOPGAMING","MASFAKSAINTEK","SIPUTLARICEPAT","BERLIANMAHAL","EMASMENGKILAP"};//daftar jawaban mode deadly
