@@ -11,7 +11,8 @@ using namespace std;
 int main(){
     const int max=8;
     const int mati=5;
-    string menu,Hkalimat,Dkalimat,ready,kesulitan,Pkata,persiapan,hasilA,hasilB,sensor,ketebak,ulangi;
+    char menu,ulangi,ready,persiapan,persiapan2,kesulitan;
+    string Hkalimat,Dkalimat,Pkata,hasilA,hasilB,sensor,ketebak;
     string hardcore[10]={"KELAPA","REXONA","DOMPET","PARFUM","KERBAU","SUMPIT","BERENANG","RANSEL","STROBERI","BERLIAN"};//daftar jawaban mode hardcore
     string deadly[10]={"TEHPUCUKHARUM","KOMPUTERJADUL","PISANGBUSUK","SUPERKOMPUTER","FOTOSINTESIS","LAPTOPGAMING","MASFAKSAINTEK","SIPUTLARICEPAT","BERLIANMAHAL","EMASMENGKILAP"};//daftar jawaban mode deadly
     int foul,musuh,gagal,wrong;
@@ -20,11 +21,11 @@ int main(){
     cout<<"===Selamat datang di HANGMAN GAME===\nsemoga beruntung!\n";
     cout<<"Mulai game?(y/n)\n";
     cin>>menu;
-    if(menu=="n"||menu=="N"){
+    if(menu=='n'||menu=='N'){
         cout<<"Terimakasih sudah berkunjung";
         return 0;
     }
-    else if(menu=="y"||menu=="Y"){
+    else if(menu=='y'||menu=='Y'){
         system("CLS");
         goto persiapan;
     }
@@ -32,11 +33,11 @@ int main(){
         cout<<"Bukan pilihan\n";
         cout<<"Ulangi game?";
         cin>>ulangi;
-        if(ulangi=="y"||ulangi=="Y"){
+        if(ulangi=='y'||ulangi=='Y'){
             system("CLS");
             goto mainmenu;
         }
-        else if(ulangi=="n"||ulangi=="N"){
+        else if(ulangi=='n'||ulangi=='N'){
         system("CLS");
         goto end;
     }
@@ -46,6 +47,33 @@ int main(){
     cout<<"Pilih lawan\n1.Player\n2.Komputer\n";
     cin>>musuh;
     system("CLS");
+    if(musuh==1||musuh==2){
+        system("CLS");
+        goto gamestrt;
+    }
+    else{
+        while (ulangi !='y'&& ulangi !='Y'){
+          cout<<"Bukan pilihan\n";
+        cout<<"Ulangi?(y/n)\n";
+        cin>>ready;
+        if(ready=='y'||ready=='Y'){
+            system("CLS");
+            goto persiapan;
+        }
+        else if(ready=='n'||ready=='N'){
+            goto end;
+        }
+        else{
+            cout<<"Bukan pilihan\n";
+            cout<<"ulangi(y/n)\n";
+            cin>>ulangi;
+            if(ulangi=='n'||ulangi=='N'){
+                goto end;
+            }
+        } 
+        }
+    }
+    gamestrt:
     //persiapan game vs player
     switch (musuh){
         case 1 ://vs player
@@ -53,14 +81,14 @@ int main(){
         cin>>Pkata;
         cout<<"Siap?(y/n)";
         cin>>ready;
-        if(ready=="n"||ready=="N"){
+        if(ready=='n'||ready=='N'){
             cout<<"Ulangi game?(y/n)";
             cin>>persiapan;
-                if(persiapan=="y"||persiapan=="Y"){
+                if(persiapan=='y'||persiapan=='Y'){
                 system("CLS");
                 goto persiapan;
-            }
-        else if(persiapan=="n"||persiapan=="N"){
+                }
+        else if(persiapan=='n'||persiapan=='N'){
             system("CLS");
             cout<<"====================\nTerimakasih sudah bermain\n====================";
             return 0;
@@ -109,20 +137,42 @@ int main(){
     case 2://vs com
     srand(time(0));
     //pilih kesulitan
+    beware:
     cout<<"KAMU HANYA PUNYA 5 KALI KESEMPATAN MENJAWAB SALAH!\n";
     cout<<"Kamu siap?(y/n)";
     cin>>ready;
-    if(ready=="n"||ready=="N"){
+    if(ready=='n'||ready=='N'){
         cout<<"Ulangi game?(y/n)";
         cin>>persiapan;
-        if(persiapan=="y"||persiapan=="Y"){
+        if(persiapan=='y'||persiapan=='Y'){
             system("CLS");
-            goto persiapan2;
+            goto beware;
         }
-        else if(persiapan=="n"||persiapan=="N"){
+        else if(persiapan=='n'||persiapan=='N'){
             system("CLS");
             cout<<"====================\nTerimakasih sudah bermain\n====================";
             return 0;
+        }
+    }
+    else if(ready=='y'||ready=='Y'){
+        system("CLS");
+        goto persiapan2;
+    }
+    else{
+        rip:
+        system("CLS");
+        cout<<"Bukan pilihan\n";
+        cout<<"ulangi?(y/n)";
+        cin>>ulangi;
+        if(ulangi=='y'||ulangi=='Y'){
+            system("CLS");
+            goto beware;
+        }
+        else if(ulangi=='n'||ulangi=='N'){
+            goto end;
+        }
+        else{
+            goto rip;
         }
     }
     persiapan2:
@@ -130,7 +180,7 @@ int main(){
     cin>>kesulitan;
     system("CLS");
     //game vs com
-    if (kesulitan=="a"||kesulitan=="A"){
+    if (kesulitan=='a'||kesulitan=='A'){
         string Hkalimat=hardcore[rand()%10];
         hasilA=Hkalimat;
         sensor=string(Hkalimat.size(), '-');
@@ -171,7 +221,7 @@ int main(){
         }
     }
     }
-    else if(kesulitan=="b"||kesulitan=="B"){
+    else if(kesulitan=='b'||kesulitan=='B'){
         string Dkalimat=deadly[rand()%10];
         hasilB=Dkalimat;
         sensor=string(Dkalimat.size(), '-');
@@ -198,7 +248,7 @@ int main(){
         ketebak+=tebak;
         if(Dkalimat.find(tebak) !=string::npos){
             cout<<"Benar "<<tebak<<" adalah salah satu hurufnya\n";
-            for(int b=0;b< Dkalimat.length();++b){
+            for(int b=0;b <Dkalimat.length();++b){
                 if(Dkalimat[b]==tebak){
                     sensor[b]=tebak;
                 }
@@ -216,11 +266,11 @@ int main(){
         cout<<"Bukan pilihan\n";
         cout<<"ulangi?(y/n)";
         cin>>ulangi;
-        if(ulangi=="y"||ulangi=="Y"){
+        if(ulangi=='y'||ulangi=='Y'){
         system("CLS");
         goto persiapan2;
         }
-        else if (ulangi=="n"||ulangi=="N"){
+        else if (ulangi=='n'||ulangi=='N'){
         goto end;
     }
     }
@@ -240,17 +290,17 @@ int main(){
     else{
         cout<<"KAMU BERHASIL!\n";
     }
-    if(kesulitan=="a"||kesulitan=="A"){
+    if(kesulitan=='a'||kesulitan=='A'){
     cout<<"Jawabannya adalah: "<<hasilA<<endl;}
-    else if(kesulitan=="b"||kesulitan=="B"){
+    else if(kesulitan=='b'||kesulitan=='B'){
     cout<<"Jawabannya adalah: "<<hasilB<<endl;}
     else {
     cout<<"Jawabannya adalah: "<<Pkata<<endl;}
     //repeat
     cout<<"Ulangi game?";
     cin>>ready;
-        while(ready != "n" && ready != "N") {
-        if(ready == "y" || ready == "Y") {
+        while(ready != 'n' && ready != 'N') {
+        if(ready == 'y' || ready == 'Y') {
             system("CLS");
             goto mainmenu;
             } else {
