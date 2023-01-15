@@ -11,87 +11,89 @@ using namespace std;
 int main(){
     const int max=8;
     const int mati=5;
-    char menu,ulangi,ready,persiapan,kesulitan;
-    string Hkalimat,Dkalimat,Pkata,hasilA,hasilB,sensor,ketebak;
+    char ready,persiapan,kesulitan,ulangi;
+    string Hkalimat,Dkalimat,Pkata,hasilA,hasilB,sensor,ketebak,jawab,musuh;
     string hardcore[10]={"KELAPA","REXONA","DOMPET","PARFUM","KERBAU","SUMPIT","BERENANG","RANSEL","STROBERI","BERLIAN"};//daftar jawaban mode hardcore
     string deadly[10]={"TEHPUCUKHARUM","KOMPUTERJADUL","PISANGBUSUK","SUPERKOMPUTER","FOTOSINTESIS","LAPTOPGAMING","MASFAKSAINTEK","SIPUTLARICEPAT","BERLIANMAHAL","EMASMENGKILAP"};//daftar jawaban mode deadly
-    int foul,musuh,gagal,wrong;
+    int foul,gagal,wrong;
     //main menu
     mainmenu:
+    jawab=jawab.size();
     cout<<"===Selamat datang di HANGMAN GAME===\nsemoga beruntung!\n";
     cout<<"Mulai game?(y/n)\n";
-    cin>>menu;
-    if(menu=='n'||menu=='N'){
+    cin>>jawab;
+    if(jawab=="n"||jawab=="N"){
         cout<<"Terimakasih sudah berkunjung";
         return 0;
     }
-    else if(menu=='y'||menu=='Y'){
+    else if(jawab=="y"||jawab=="Y"){
         system("CLS");
         goto persiapan;
     }
     else{
         cout<<"Bukan pilihan\n";
         cout<<"Ulangi game?";
-        cin>>ulangi;
-        if(ulangi=='y'||ulangi=='Y'){
+        cin>>jawab;
+        if(jawab=="y"||jawab=="Y"){
             system("CLS");
             goto mainmenu;
         }
-        else if(ulangi=='n'||ulangi=='N'){
+        else if(jawab=="n"||jawab=="N"){
         system("CLS");
         goto end;
     }
     }
     system("CLS");
     persiapan:
-    cout<<"Pilih lawan\n1.Player\n2.Komputer\n";
-    cin>>musuh;
     system("CLS");
-    if(musuh==1||musuh==2){
-        system("CLS");
+    jawab=jawab.size();
+    cout<<"Pilih lawan\nA.Player\nB.Komputer\n";
+    cin>>jawab,musuh;
+    system("CLS");
+    if(jawab=="a"||jawab=="A"||jawab=="b"||jawab=="B"){
         goto gamestrt;
     }
-    else{
-        while (ulangi !='y'&& ulangi !='Y'){
-          cout<<"Bukan pilihan\n";
-        cout<<"Ulangi?(y/n)\n";
-        cin>>ready;
-        if(ready=='y'||ready=='Y'){
-            system("CLS");
-            goto persiapan;
-        }
-        else if(ready=='n'||ready=='N'){
-            goto end;
-        }
-        else{
-            cout<<"Bukan pilihan\n";
-            cout<<"ulangi(y/n)\n";
-            cin>>ulangi;
-            if(ulangi=='n'||ulangi=='N'){
-                goto end;
-            }
-        } 
-        }
+    else if(jawab!="a"||jawab!="A"||jawab=="b"||jawab=="B") {
+    cout<<"Bukan pilihan\n";
+    cout<<"ulangi(y/n)\n";
+    cin>>jawab;
+    if(jawab=="n"||jawab=="N"){
+        goto end;
     }
+    else if(jawab=="y"||jawab=="Y"){
+        goto persiapan;
+    }
+}
+
     gamestrt:
     //persiapan game vs player
-    switch (musuh){
-        case 1 ://vs player
+    system("CLS");
+    if(jawab=="a"||jawab=="A"){
+        //case 1 :vs player
         cout<<"Gunakan huruf kapital untuk KATA yang akan kamu pakai sebagai jawaban, dan pemain hanya memiliki 8kesempatan menjawab salah!\nkalimat: ";
         cin>>Pkata;
         cout<<"Siap?(y/n)";
-        cin>>ready;
-        if(ready=='n'||ready=='N'){
+        cin>>jawab;
+        if(jawab=="n"||jawab=="N"){
             cout<<"Ulangi game?(y/n)";
-            cin>>persiapan;
-                if(persiapan=='y'||persiapan=='Y'){
+            cin>>jawab;
+                if(jawab=="y"||jawab=="Y"){
                 system("CLS");
                 goto persiapan;
                 }
-        else if(persiapan=='n'||persiapan=='N'){
+        else if(jawab=="n"||jawab=="N"){
             system("CLS");
             cout<<"====================\nTerimakasih sudah bermain\n====================";
             return 0;
+        }
+    }
+    else{
+        system("CLS");
+        cout<<"bukan pilihan\n";
+        cout<<"siap atau keluar?(y/n)\n";
+        cin>>jawab;
+        if(jawab=="n"||jawab=="N"){
+            goto end;
         }
     }
     system("CLS");
@@ -133,8 +135,8 @@ int main(){
             system("CLS");
         }
     }
-    break;
-    case 2://vs com
+    }//break;
+    else if(jawab=="b"||jawab=="B"){//vs com
     srand(time(0));
     //pilih kesulitan
     beware:
@@ -274,8 +276,8 @@ int main(){
         goto end;
     }
     }
-    break;
     }
+    //break;
     //shutdown
     if(foul==max){
         cout<<"YOU'RE DEAD\n";
