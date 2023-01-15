@@ -11,15 +11,15 @@ using namespace std;
 int main(){
     const int max=8;
     const int mati=5;
-    char ready,persiapan,kesulitan;
-    string Hkalimat,Dkalimat,Pkata,hasilA,hasilB,sensor,ketebak,jawab,musuh;
+    char kesulitan;
+    string Hkalimat,Dkalimat,Pkata,hasilA,hasilB,sensor,ketebak,jawab;
     string hardcore[10]={"KELAPA","REXONA","DOMPET","PARFUM","KERBAU","SUMPIT","BERENANG","RANSEL","STROBERI","BERLIAN"};//daftar jawaban mode hardcore
     string deadly[10]={"TEHPUCUKHARUM","KOMPUTERJADUL","PISANGBUSUK","SUPERKOMPUTER","FOTOSINTESIS","LAPTOPGAMING","MASFAKSAINTEK","SIPUTLARICEPAT","BERLIANMAHAL","EMASMENGKILAP"};//daftar jawaban mode deadly
     int foul,gagal,wrong;
     //main menu
     mainmenu:
     jawab=jawab.size();
-    cout<<"===Selamat datang di HANGMAN GAME===\nsemoga beruntung!\n";
+    cout<<"===Selamat datang di HANGMAN GAME===\nsemoga beruntung!\n====================\n";
     cout<<"Mulai game?(y/n)\n";
     cin>>jawab;
     if(jawab=="n"||jawab=="N"){
@@ -48,7 +48,7 @@ int main(){
     system("CLS");
     jawab=jawab.size();
     cout<<"Pilih lawan\nA.Player\nB.Komputer\n";
-    cin>>jawab,musuh;
+    cin>>jawab;
     system("CLS");
     if(jawab=="a"||jawab=="A"||jawab=="b"||jawab=="B"){
         goto gamestrt;
@@ -135,21 +135,21 @@ int main(){
     beware:
     cout<<"KAMU HANYA PUNYA 5 KALI KESEMPATAN MENJAWAB SALAH!\n";
     cout<<"Kamu siap?(y/n)";
-    cin>>ready;
-    if(ready=='n'||ready=='N'){
+    cin>>jawab;
+    if(jawab=="n"||jawab=="N"){
         cout<<"Ulangi game?(y/n)";
-        cin>>persiapan;
-        if(persiapan=='y'||persiapan=='Y'){
+        cin>>jawab;
+        if(jawab=="y"||jawab=="Y"){
             system("CLS");
             goto beware;
         }
-        else if(persiapan=='n'||persiapan=='N'){
+        else if(jawab=="n"||jawab=="N"){
             system("CLS");
             cout<<"====================\nTerimakasih sudah bermain\n====================";
             return 0;
         }
     }
-    else if(ready=='y'||ready=='Y'){
+    else if(jawab=="y"||jawab=="Y"){
         system("CLS");
         goto persiapan2;
     }
@@ -295,16 +295,16 @@ int main(){
     cout<<"====================\n";}
     //repeat
     cout<<"Ulangi game?";
-    cin>>ready;
-        while(ready != 'n' && ready != 'N') {
-        if(ready == 'y' || ready == 'Y') {
+    cin>>jawab;
+        while(jawab != "n" && jawab != "N") {
+        if(jawab == "y" || jawab == "Y") {
             system("CLS");
             goto mainmenu;
             } else {
                 system("CLS");
                 cout<<"Bukan pilihan\n";
                 cout<<"Ulangi game?:";
-                cin>>ready;
+                cin>>jawab;
                 }
 }
 end:
