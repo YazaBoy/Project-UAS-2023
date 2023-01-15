@@ -70,23 +70,16 @@ int main(){
     system("CLS");
     if(jawab=="a"||jawab=="A"){
         //case 1 :vs player
+        player:
         cout<<"Gunakan huruf kapital untuk KATA yang akan kamu pakai sebagai jawaban, dan pemain hanya memiliki 8kesempatan menjawab salah!\nkalimat: ";
         cin>>Pkata;
         cout<<"Siap?(y/n)";
         cin>>jawab;
-        if(jawab=="n"||jawab=="N"){
-            cout<<"Ulangi game?(y/n)";
-            cin>>jawab;
-                if(jawab=="y"||jawab=="Y"){
-                system("CLS");
-                goto persiapan;
+        if(jawab=="y"||jawab=="Y"){
                 }
         else if(jawab=="n"||jawab=="N"){
-            system("CLS");
-            cout<<"====================\nTerimakasih sudah bermain\n====================";
-            return 0;
+            goto end;
         }
-    }
     else{
         system("CLS");
         cout<<"bukan pilihan\n";
