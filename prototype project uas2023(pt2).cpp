@@ -6,7 +6,7 @@ using namespace std;
 /*  Nama    : Ilyasa Nur
     Prodi   : Teknik Informatika 1A
     Tugas ke: PROJECT UAS2023
-    Tanggal : 13-januari-2023*/
+    Tanggal : 15-januari-2023*/
 
 int main(){
     const int max=8;
