@@ -11,7 +11,7 @@ using namespace std;
 int main(){
     const int max=8;
     const int mati=5;
-    char ready,persiapan,kesulitan,ulangi;
+    char ready,persiapan,kesulitan;
     string Hkalimat,Dkalimat,Pkata,hasilA,hasilB,sensor,ketebak,jawab,musuh;
     string hardcore[10]={"KELAPA","REXONA","DOMPET","PARFUM","KERBAU","SUMPIT","BERENANG","RANSEL","STROBERI","BERLIAN"};//daftar jawaban mode hardcore
     string deadly[10]={"TEHPUCUKHARUM","KOMPUTERJADUL","PISANGBUSUK","SUPERKOMPUTER","FOTOSINTESIS","LAPTOPGAMING","MASFAKSAINTEK","SIPUTLARICEPAT","BERLIANMAHAL","EMASMENGKILAP"};//daftar jawaban mode deadly
@@ -158,12 +158,12 @@ int main(){
         system("CLS");
         cout<<"Bukan pilihan\n";
         cout<<"ulangi?(y/n)";
-        cin>>ulangi;
-        if(ulangi=='y'||ulangi=='Y'){
+        cin>>jawab;
+        if(jawab=="y"||jawab=="Y"){
             system("CLS");
             goto beware;
         }
-        else if(ulangi=='n'||ulangi=='N'){
+        else if(jawab=="n"||jawab=="N"){
             goto end;
         }
         else{
@@ -260,17 +260,16 @@ int main(){
     else{
         cout<<"Bukan pilihan\n";
         cout<<"ulangi?(y/n)";
-        cin>>ulangi;
-        if(ulangi=='y'||ulangi=='Y'){
+        cin>>jawab;
+        if(jawab=="y"||jawab=="Y"){
         system("CLS");
         goto persiapan2;
         }
-        else if (ulangi=='n'||ulangi=='N'){
+        else if (jawab=="n"||jawab=="N"){
         goto end;
     }
     }
     }
-    //break;
     //shutdown
     if(foul==max){
         cout<<"YOU'RE DEAD\n";
@@ -286,11 +285,14 @@ int main(){
         cout<<"KAMU BERHASIL!\n";
     }
     if(kesulitan=='a'||kesulitan=='A'){
-    cout<<"Jawabannya adalah: "<<hasilA<<endl;}
+    cout<<"Jawabannya adalah: "<<hasilA<<endl;
+    cout<<"====================\n";}
     else if(kesulitan=='b'||kesulitan=='B'){
-    cout<<"Jawabannya adalah: "<<hasilB<<endl;}
+    cout<<"Jawabannya adalah: "<<hasilB<<endl;
+    cout<<"====================\n";}
     else {
-    cout<<"Jawabannya adalah: "<<Pkata<<endl;}
+    cout<<"Jawabannya adalah: "<<Pkata<<endl;
+    cout<<"====================\n";}
     //repeat
     cout<<"Ulangi game?";
     cin>>ready;
