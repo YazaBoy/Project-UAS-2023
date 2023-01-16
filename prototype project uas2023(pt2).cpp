@@ -39,8 +39,8 @@ int main(){
             goto mainmenu;
         }
         else if(jawab=="n"||jawab=="N"){
-        system("CLS");
-        goto end;
+            system("CLS");
+            goto end;
     }
     }
     system("CLS");
@@ -54,9 +54,9 @@ int main(){
         goto gamestrt;
     }
     else if(jawab!="a"||jawab!="A"||jawab=="b"||jawab=="B") {
-    cout<<"Bukan pilihan\n";
-    cout<<"ulangi(y/n)\n";
-    cin>>jawab;
+        cout<<"Bukan pilihan\n";
+        cout<<"ulangi(y/n)\n";
+        cin>>jawab;
     if(jawab=="n"||jawab=="N"){
         goto end;
     }
@@ -76,7 +76,7 @@ int main(){
         cout<<"Siap?(y/n)";
         cin>>jawab;
         if(jawab=="y"||jawab=="Y"){
-                }
+        }
         else if(jawab=="n"||jawab=="N"){
             goto end;
         }
@@ -130,25 +130,25 @@ int main(){
     }
     }//break;
     else if(jawab=="b"||jawab=="B"){//vs com
-    srand(time(0));
+        srand(time(0));
     //pilih kesulitan
-    beware:
-    cout<<"KAMU HANYA PUNYA 5 KALI KESEMPATAN MENJAWAB SALAH!\n";
-    cout<<"Kamu siap?(y/n)";
-    cin>>jawab;
-    if(jawab=="n"||jawab=="N"){
-        cout<<"Ulangi game?(y/n)";
+        beware:
+        cout<<"KAMU HANYA PUNYA 5 KALI KESEMPATAN MENJAWAB SALAH!\n";
+        cout<<"Kamu siap?(y/n)";
         cin>>jawab;
-        if(jawab=="y"||jawab=="Y"){
-            system("CLS");
-            goto beware;
-        }
+        if(jawab=="n"||jawab=="N"){
+            cout<<"Ulangi game?(y/n)";
+            cin>>jawab;
+            if(jawab=="y"||jawab=="Y"){
+                system("CLS");
+                goto beware;
+            }
         else if(jawab=="n"||jawab=="N"){
             system("CLS");
             cout<<"====================\nTerimakasih sudah bermain\n====================";
             return 0;
         }
-    }
+        }
     else if(jawab=="y"||jawab=="Y"){
         system("CLS");
         goto persiapan2;
@@ -194,11 +194,11 @@ int main(){
             system("CLS");
             //checkpoint pengecekan
             while(ketebak.find(tebak) != string::npos){
-            cout<<"Kamu sudah menebak dengan huruf "<<tebak<<endl;
-            cout<<"Tebakanmu: ";
-            cin>>tebak;
-            tebak=toupper(tebak);
-        }
+                cout<<"Kamu sudah menebak dengan huruf "<<tebak<<endl;
+                cout<<"Tebakanmu: ";
+                cin>>tebak;
+                tebak=toupper(tebak);
+            }
         ketebak+=tebak;
         if(Hkalimat.find(tebak) !=string::npos){
             cout<<"Benar "<<tebak<<" adalah salah satu hurufnya\n";
@@ -214,7 +214,7 @@ int main(){
             ++gagal;
             system("CLS");
         }
-    }
+        }
     }
     else if(kesulitan=='b'||kesulitan=='B'){
         string Dkalimat=deadly[rand()%10];
@@ -223,10 +223,10 @@ int main(){
         ketebak="";
         wrong=0;
         while(wrong<mati && sensor !=Dkalimat){
-        cout<<"Kamu punya "<<(mati-wrong)<<" kesempatan menjawab salah\n";
-        cout<<"====================\n";
-        cout<<"Kamu sudah menebak dengan huruf "<<ketebak<<endl;
-        cout<<"Huruf dalam kata yang sudah kamu tebak "<<sensor<<endl;
+            cout<<"Kamu punya "<<(mati-wrong)<<" kesempatan menjawab salah\n";
+            cout<<"====================\n";
+            cout<<"Kamu sudah menebak dengan huruf "<<ketebak<<endl;
+            cout<<"Huruf dalam kata yang sudah kamu tebak "<<sensor<<endl;
         //input tebakan
         char tebak;
         cout<<"Tebakanmu: ";
@@ -255,19 +255,19 @@ int main(){
             ++wrong;
             system("CLS");
         }
-    }
+        }
     }
     else{
         cout<<"Bukan pilihan\n";
         cout<<"ulangi?(y/n)";
         cin>>jawab;
         if(jawab=="y"||jawab=="Y"){
-        system("CLS");
-        goto persiapan2;
+            system("CLS");
+            goto persiapan2;
         }
         else if (jawab=="n"||jawab=="N"){
-        goto end;
-    }
+            goto end;
+        }
     }
     }
     //shutdown
@@ -285,31 +285,34 @@ int main(){
         cout<<"KAMU BERHASIL!\n";
     }
     if(kesulitan=='a'||kesulitan=='A'){
-    cout<<"Jawabannya adalah: "<<hasilA<<endl;
-    cout<<"====================\n";}
+        cout<<"Jawabannya adalah: "<<hasilA<<endl;
+        cout<<"====================\n";
+    }
     else if(kesulitan=='b'||kesulitan=='B'){
-    cout<<"Jawabannya adalah: "<<hasilB<<endl;
-    cout<<"====================\n";}
+        cout<<"Jawabannya adalah: "<<hasilB<<endl;
+        cout<<"====================\n";
+    }
     else {
-    cout<<"Jawabannya adalah: "<<Pkata<<endl;
-    cout<<"====================\n";}
+        cout<<"Jawabannya adalah: "<<Pkata<<endl;
+        cout<<"====================\n";
+    }
     //repeat
     cout<<"Ulangi game?";
     cin>>jawab;
         while(jawab != "n" && jawab != "N") {
-        if(jawab == "y" || jawab == "Y") {
+            if(jawab == "y" || jawab == "Y") {
             system("CLS");
             goto mainmenu;
-            } else {
+            } 
+            else {
                 system("CLS");
                 cout<<"Bukan pilihan\n";
                 cout<<"Ulangi game?:";
                 cin>>jawab;
-                }
-}
+            }
+        }
 end:
 system("CLS");
 cout<<"====================\nTerimakasih sudah bermain\n====================";
 return 0;
-
 }
