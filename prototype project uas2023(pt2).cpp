@@ -6,15 +6,15 @@ using namespace std;
 /*  Nama    : Ilyasa Nur
     Prodi   : Teknik Informatika 1A
     Tugas ke: PROJECT UAS2023
-    Tanggal : 15-januari-2023*/
+    Tanggal : 16-januari-2023*/
 
 int main(){
-    const int max=8;
+    const int max=6;
     const int mati=5;
     char kesulitan;
     string Hkalimat,Dkalimat,Pkata,hasilA,hasilB,sensor,ketebak,jawab;
-    string hardcore[10]={"KELAPA","REXONA","DOMPET","PARFUM","KERBAU","SUMPIT","BERENANG","RANSEL","STROBERI","BERLIAN"};//daftar jawaban mode hardcore
-    string deadly[10]={"TEHPUCUKHARUM","KOMPUTERJADUL","PISANGBUSUK","SUPERKOMPUTER","FOTOSINTESIS","LAPTOPGAMING","MASFAKSAINTEK","SIPUTLARICEPAT","BERLIANMAHAL","EMASMENGKILAP"};//daftar jawaban mode deadly
+    string hardcore[15]={"KELAPA","REXONA","DOMPET","PARFUM","KERBAU","SUMPIT","BERENANG","RANSEL","STROBERI","BERLIAN","CORONA","TELEVISI","AMBULANS","CRAYON","SAPIPERAH"};//daftar jawaban mode hardcore
+    string deadly[15]={"TEHPUCUKHARUM","KOMPUTERJADUL","PISANGBUSUK","SUPERKOMPUTER","FOTOSINTESIS","LAPTOPGAMING","MASFAKSAINTEK","SIPUTLARICEPAT","BERLIANMAHAL","EMASMENGKILAP","KEBUNPADIPAKBUDI","TEKNIKINFORMATIKATHEBEST","HUJANASAMLAMBUNG","MIEGORENGBERKUAH","AYAMKAMPUNGBERANAK"};//daftar jawaban mode deadly
     int foul,gagal,wrong;
     //main menu
     mainmenu:
@@ -78,7 +78,24 @@ int main(){
         if(jawab=="y"||jawab=="Y"){
         }
         else if(jawab=="n"||jawab=="N"){
-            goto end;
+            system("CLS");
+            cout<<"ulangi atau keluar?\nY.ulangi\nN.keluar\n";
+            cin>>jawab;
+        while (jawab=="y"||jawab=="Y"){
+            if(jawab=="y"||jawab=="Y"){
+                system("CLS");
+                goto player;
+            }
+            else if(jawab=="n"||jawab=="N"){
+                goto end;
+            }
+            else{
+                cout<<"bukan pilihan";
+                cout<<"ulangi?";
+                cin>>jawab;
+                system("CLS");
+            }
+        }
         }
     else{
         system("CLS");
