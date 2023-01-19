@@ -8,7 +8,7 @@ using namespace std;
     Tugas ke: PROJECT UAS2023
     Tanggal : 16-januari-2023*/
 
-int main(){
+void HangmanGame(){
     const int max=6;
     const int mati=5;
     char kesulitan;
@@ -23,8 +23,7 @@ int main(){
     cout<<"Mulai game?(y/n)\n";
     cin>>jawab;
     if(jawab=="n"||jawab=="N"){
-        cout<<"Terimakasih sudah berkunjung";
-        return 0;
+        goto end;
     }
     else if(jawab=="y"||jawab=="Y"){
         system("CLS");
@@ -71,7 +70,7 @@ int main(){
     if(jawab=="a"||jawab=="A"){
         //case 1 :vs player
         player:
-        cout<<"Gunakan huruf kapital untuk KATA yang akan kamu pakai sebagai jawaban, dan pemain hanya memiliki 8kesempatan menjawab salah!\nkalimat: ";
+        cout<<"Gunakan huruf kapital untuk KATA yang akan kamu pakai sebagai jawaban, dan pemain hanya memiliki 8 kesempatan menjawab salah!\nkalimat: ";
         cin>>Pkata;
         cout<<"Siap?(y/n)";
         cin>>jawab;
@@ -161,9 +160,7 @@ int main(){
                 goto beware;
             }
         else if(jawab=="n"||jawab=="N"){
-            system("CLS");
-            cout<<"====================\nTerimakasih sudah bermain\n====================";
-            return 0;
+            goto end;
         }
         }
     else if(jawab=="y"||jawab=="Y"){
@@ -331,5 +328,8 @@ int main(){
 end:
 system("CLS");
 cout<<"====================\nTerimakasih sudah bermain\n====================";
-return 0;
+}
+int main(){
+    HangmanGame();
+    return 0;
 }
